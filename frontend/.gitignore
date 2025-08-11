@@ -22,6 +22,7 @@ odontoflow-painel/build
 # Backups e arquivos temporários
 *.zip
 *.rar
+*.tar
 *.tar.gz
 backup_restaurado/
 backups*/
@@ -35,3 +36,8 @@ yarn-error.log*
 # --- Arquivos de Cache e Sistema Operacional ---
 .DS_Store
 Thumbs.db
+
+# --- NOVAS REGRAS ---
+# Ignorar arquivos de texto com segredos
+cloudflare_secret.txt
+Token + Secret CloudFlare.txt
