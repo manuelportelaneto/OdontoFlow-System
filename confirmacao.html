@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Consulta - OdontoFlow</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f8ff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background-color: white; padding: 40px; border-radius: 12px; box-shadow: 0 6px 25px rgba(0,0,0,0.1); text-align: center; max-width: 450px; }
+        .logo { color: #007bff; font-weight: bold; font-size: 24px; margin-bottom: 20px; }
+        h1 { color: #333; font-size: 22px; }
+        .button-container { margin-top: 30px; }
+        a.button { text-decoration: none; color: white; padding: 15px 25px; border-radius: 8px; font-weight: bold; font-size: 16px; margin: 0 10px; }
+        .confirm { background-color: #28a745; border-bottom: 4px solid #218838; }
+        .cancel { background-color: #dc3545; border-bottom: 4px solid #c82333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🦷 OdontoFlow</div>
+        <h1>Por favor, confirme sua presença</h1>
+        <p>Clique em uma das opções abaixo para seu agendamento.</p>
+        <div class="button-container">
+            <!-- O link do botão aponta para o webhook do "Recepcionista" -->
+            <a class="button confirm" href="http://localhost:5678/webhook/confirmacao?acao=confirmar&id_agendamento={{ $json.query.id_agendamento }}">
+                Confirmar Presença
+            </a>
+            <a class="button cancel" href="http://localhost:5678/webhook/confirmacao?acao=cancelar&id_agendamento={{ $json.query.id_agendamento }}">
+                Cancelar Consulta
+            </a>
+        </div>
+    </div>
+</body>
+</html>

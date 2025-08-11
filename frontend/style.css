@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eef5f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 70, 128, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ... (todos os outros estilos do seu arquivo de teste podem ser colados aqui, eles são ótimos) ... */
+/* Adicionando estilos de carregamento */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#responseMessage {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.success { color: #28a745; }
+.error { color: #dc3545; }
+/* ... (estilos dos botões de confirmação) ... */
+.button-container { margin-top: 25px; display: flex; gap: 15px; }
+.button { width: 100%; padding: 15px; border: none; border-radius: 8px; color: white; font-size: 1rem; font-weight: 600; cursor: pointer; }
+.confirm { background-color: #28a745; }
+.cancel { background-color: #dc3545; }

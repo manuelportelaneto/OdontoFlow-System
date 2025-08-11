@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel Portela - Case de Sucesso: OdontoFlow</title>
+    <link rel="stylesheet" href="style-portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Case de Sucesso: OdontoFlow</h1>
+            <p class="subtitle">Um Sistema de Gestão Inteligente para Clínicas</p>
+            <p class="author">Desenvolvido por <strong>Manuel Portela</strong></p>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="card">
+            <h2>O Desafio: Modernizar a Gestão de Clínicas</h2>
+            <p>O objetivo do projeto OdontoFlow foi criar uma solução de automação completa para clínicas odontológicas, visando reduzir o trabalho manual, minimizar erros de agendamento e melhorar drasticamente a comunicação com o paciente, diminuindo as taxas de não comparecimento.</p>
+        </section>
+
+        <section class="card">
+            <h2>Funcionalidades Principais</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h3>🗓️ Agendamento Inteligente</h3>
+                    <p>Interface web para registro de novas consultas, com validação de dados e integração direta com a agenda da clínica.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>⚙️ Automação Back-end Robusta</h3>
+                    <p>Processamento de dados, criação de eventos no Google Calendar e registro em planilhas de controle, tudo de forma automática.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✉️ Comunicação Proativa com o Paciente</h3>
+                    <p>Envio automático de e-mails para lembretes diários e um sistema interativo para confirmação ou cancelamento de consultas através de uma página web dedicada.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Ferramentas e Tecnologias</h2>
+            <ul class="tech-stack">
+                <li><strong>n8n:</strong> O cérebro da automação, orquestrando todos os fluxos de trabalho.</li>
+                <li><strong>Docker:</strong> Para criar um ambiente de servidor estável, isolado e replicável.</li>
+                <li><strong>Google Suite:</strong> Integração com Google Sheets como banco de dados e Google Calendar como agenda central.</li>
+                <li><strong>Ngrok:</strong> Ferramenta essencial para criar um túnel seguro e expor o ambiente de desenvolvimento local para a internet durante os testes.</li>
+                <li><strong>Hostinger:</strong> Plataforma de hospedagem para a interface web do cliente (formulários e páginas de resposta).</li>
+                <li><strong>HTML, CSS & JavaScript:</strong> Para a criação de uma interface de usuário moderna, responsiva e intuitiva.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>A Jornada do Desenvolvimento: Desafios e Soluções</h2>
+            <p>O desenvolvimento de um sistema robusto é uma maratona de solução de problemas. Abaixo estão os principais desafios enfrentados e as soluções arquitetônicas implementadas:</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>O Fantasma do Webhook: Conectando o Mundo Exterior</h3>
+                    <p><strong>Problema:</strong> Os webhooks do n8n não respondiam em modo de produção, apresentando erros de conexão e "workflow not started", mesmo com o fluxo ativo.</p>
+                    <p><strong>Solução:</strong> A migração do ambiente de desenvolvimento do aplicativo desktop do n8n para um container **Docker** padronizado. A configuração de variáveis de ambiente cruciais, como `WEBHOOK_URL` e `TZ`, e a criação de um túnel com **ngrok** para garantir uma comunicação estável e depurável entre a interface web e o back-end local.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>O Paradoxo do Fuso Horário</h3>
+                    <p><strong>Problema:</strong> Agendamentos registravam com uma diferença de 3 horas, e timestamps de criação estavam incorretos.</p>
+                    <p><strong>Solução:</strong> Após tentativas de correção no software, a solução definitiva foi na infraestrutura: configurar a variável de ambiente `TZ=America/Sao_Paulo` no **Docker**. Isso forçou o container a operar no fuso horário brasileiro, resolvendo a causa raiz do problema e permitindo simplificar o código de manipulação de datas.</p>
+                </div>
+                 <div class="timeline-item">
+                    <h3>O Labirinto do n8n: Contexto e Bugs</h3>
+                    <p><strong>Problema:</strong> Falhas persistentes em nós específicos (como o `Google Calendar`), com erros como `attendee.split is not a function`, e a perda de dados entre os nós do fluxo.</p>
+                    <p><strong>Solução:</strong> Um mergulho profundo na depuração. A solução passou por entender o conceito de **contexto de dados** e usar referências absolutas (`$node["NomeDoNo"]...`) para buscar informações da fonte original. Quando um bug persistente foi identificado, a arquitetura do fluxo foi alterada para contorná-lo, como na solução de "deletar e recriar" o evento em vez de apenas atualizá-lo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Aprendizados e Habilidades Demonstradas</h2>
+            <p>Este projeto foi um exercício intenso de desenvolvimento full-stack e automação. As habilidades que aprimorei e demonstrei incluem:</p>
+            <ul>
+                <li><strong>Pensamento Arquitetônico:</strong> A capacidade de redesenhar a arquitetura do sistema (de e-mails interativos para uma landing page, de múltiplos workflows para fluxos mais simples) para aumentar a robustez e a experiência do usuário.</li>
+                <li><strong>Depuração Analítica (Debugging):</strong> O uso metódico de logs, mensagens de erro, stack traces e testes isolados (como dados mockados e o ReqBin) para identificar a causa raiz de problemas complexos.</li>
+                <li><strong>Resiliência e Persistência:</strong> A determinação em não desistir diante de falhas recorrentes, tratando cada erro como uma pista para a solução final.</li>
+                <li><strong>Domínio do Ecossistema de Automação:</strong> A integração fluida entre ferramentas de front-end (HTML/JS/CSS), back-end (n8n), infraestrutura (Docker, Hostinger) e APIs de terceiros (Google Suite).</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Para Quem é o OdontoFlow?</h2>
+            <p>O sistema OdontoFlow é ideal para **clínicas odontológicas e de saúde de pequeno e médio porte, além de profissionais liberais (médicos, terapeutas, consultores)** que buscam:</p>
+            <ul>
+                <li>Automatizar o processo de agendamento.</li>
+                <li>Reduzir drasticamente o não comparecimento de pacientes através de lembretes inteligentes.</li>
+                <li>Profissionalizar a comunicação com o cliente.</li>
+                <li>Liberar a equipe de tarefas repetitivas para focar no que realmente importa: o atendimento ao paciente.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido com dedicação por <strong>Manuel Portela</strong>.</p>
+    </footer>
+
+    <script src="script-portfolio.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    restart: always
+    ports:
+      - "5678:5678"
+    env_file:
+      - .env
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: always
+    command: tunnel --no-autoupdate run --token eyJhIjoiNGQzNDI0NTI4YmM5MGEzNGM0M2JjMTQwNzEzMzdkYjMiLCJ0IjoiNmI4NGE0NTMtMTUyZS00YTk3LTgwY2YtM2JmNzg4ZWE5YTRhIiwicyI6Ik5HUXpNR05oWTJFdE0yWXhaaTAwWm1ZeExXRTNNV0V0TVdGa05tVmtZbVl6WkRaaCJ9
+    

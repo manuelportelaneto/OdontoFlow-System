@@ -1,0 +1,17 @@
+OdontoFlow-N8N/
+├── workflows/
+│   ├── agendamentos/
+│   │   └── agendamento-online.json
+│   ├── prontuarios/
+│   └── financeiro/
+├── templates/
+│   ├── emails/
+│   ├── whatsapp/
+│   └── relatorios/
+├── database/
+├── backups/
+├── docs/
+│   └── google-sheets-setup.md
+├── credentials/
+│   └── google-sheets-config.json
+└── utils/

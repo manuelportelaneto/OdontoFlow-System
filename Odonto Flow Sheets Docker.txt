@@ -1,0 +1,6 @@
+Odonto Flow Sheets Docker
+Client ID:
+155886971288-41fii3gbbquuj14feemm464q79pp4j35.apps.googleusercontent.com
+
+Client Secret:
+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

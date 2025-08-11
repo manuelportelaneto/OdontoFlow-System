@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirme sua Consulta - OdontoFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Overlay e Spinner de Carregamento -->
+    <div id="loader-overlay" class="loader-overlay" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🦷 OdontoFlow</h1>
+        </div>
+        <div id="confirmation-area">
+            <h2>Confirme sua presença</h2>
+            <p>Por favor, clique em uma das opções abaixo para seu agendamento.</p>
+            <div class="button-container">
+                <button class="button confirm">Confirmar Presença</button>
+                <button class="button cancel">Cancelar Consulta</button>
+            </div>
+        </div>
+        <div id="responseMessage"></div>
+    </div>
+    <script src="script.js?v=1.1"></script>
+</body>
+</html>

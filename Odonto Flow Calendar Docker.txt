@@ -1,0 +1,6 @@
+Odonto Flow Calendar Docker
+Client ID:
+155886971288-icp89n3l7q4dqlcppsbq92tg6i9fosi7.apps.googleusercontent.com
+
+Client Secret:
+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
